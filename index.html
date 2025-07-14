@@ -65,8 +65,8 @@
       const gapDays = Math.round((restartDate - stopDate) / (1000 * 60 * 60 * 24));
       document.getElementById('gapDays').value = gapDays;
 
-      const daysBeforeGap = 1+ Math.round((stopDate - startDate) / (1000 * 60 * 60 * 24));
-      document.getElementById('daysBeforeGap').value = daysBeforeGap;
+      const daysBeforeGap = Math.round((stopDate - startDate) / (1000 * 60 * 60 * 24));
+      document.getElementById('daysBeforeGap').value = daysBeforeGap + 1;
 
       const correctionFactor = Math.pow(daysBeforeGap / (daysBeforeGap + gapDays),0.11);
       document.getElementById('correctionFactor').value = correctionFactor.toFixed(3);
