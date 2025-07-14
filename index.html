@@ -65,13 +65,13 @@
       const gapDays = Math.round((restartDate - stopDate) / (1000 * 60 * 60 * 24));
       document.getElementById('gapDays').value = gapDays;
 
-      const daysBeforeGap = Math.round((stopDate - startDate) / (1000 * 60 * 60 * 24));
+      const daysBeforeGap = Math.round((stopDate - startDate + 1) / (1000 * 60 * 60 * 24));
       document.getElementById('daysBeforeGap').value = daysBeforeGap;
 
-      const correctionFactor = gapDays / (daysBeforeGap + gapDays);
+      const correctionFactor = Math.pow(gapDays / (daysBeforeGap + gapDays),0.11);
       document.getElementById('correctionFactor').value = correctionFactor.toFixed(3);
 
-      const effectiveTDF = fractionsBeforeGap * Math.pow(dosePerFraction + 1, 1.2);
+      const effectiveTDF = (fractionsBeforeGap / 1.0585) * Math.pow(dosePerFraction + 1, 1.2);
       document.getElementById('effectiveTDF').value = effectiveTDF.toFixed(3);
 
       const plannedTDF = fractions * Math.pow(dosePerFraction + 1, 1.2);
