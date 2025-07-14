@@ -71,7 +71,7 @@
       const correctionFactor = Math.pow(daysBeforeGap / (daysBeforeGap + gapDays),0.11);
       document.getElementById('correctionFactor').value = correctionFactor.toFixed(3);
 
-      const effectiveTDF = (fractionsBeforeGap / 1.0585) * Math.pow(dosePerFraction + 1, 1.2);
+      const effectiveTDF = (correctionFactor*fractionsBeforeGap/1.0585) * Math.pow(dosePerFraction,1.538);
       document.getElementById('effectiveTDF').value = effectiveTDF.toFixed(3);
 
       const plannedTDF = fractions * Math.pow(dosePerFraction + 1, 1.2);
