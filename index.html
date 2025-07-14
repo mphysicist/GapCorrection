@@ -80,7 +80,7 @@
       const remainingTDF = plannedTDF - effectiveTDF;
       document.getElementById('remainingTDF').value = remainingTDF.toFixed(3);
 
-      const remainingFractions = remainingTDF / Math.pow(dosePerFraction + 1, 1.2);
+      const remainingFractions = remainingTDF*1.0585/dosePerFraction**1.538;
       document.getElementById('remainingFractions').value = remainingFractions.toFixed(2);
 
       const extraFractions = remainingFractions - (fractions - fractionsBeforeGap);
